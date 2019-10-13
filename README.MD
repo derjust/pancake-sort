@@ -1,7 +1,7 @@
 # Pancake sort
 
 Panacke sort implementation based on
-(geeksforgeeks.org/pancake-sorting)[https://www.geeksforgeeks.org/pancake-sorting/]
+[geeksforgeeks.org/pancake-sorting](https://www.geeksforgeeks.org/pancake-sorting/)
 while
 
 * Adding logging
