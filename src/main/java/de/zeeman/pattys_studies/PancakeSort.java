@@ -4,10 +4,12 @@ import java.util.Arrays;
 
 public class PancakeSort {
 
-
     /* Reverses arr[0..i] */
     static void flip(int arr[], int i) 
     { 
+    	// Generating snapshot of array before the flip
+    	// to output below
+    	String beforeFlip = Arrays.toString(arr);
         int temp, start = 0; 
         while (start < i) 
         { 
@@ -17,6 +19,8 @@ public class PancakeSort {
             start++; 
             i--; 
         } 
+
+        System.out.println(String.format("Flipped Array: %s -> %s", beforeFlip, Arrays.toString(arr)));
     } 
   
     // Returns index of the  
@@ -47,6 +51,7 @@ public class PancakeSort {
             // arr[0..curr_size-1] 
             int mi = findMax(arr, curr_size); 
   
+            // Optimization 1:
             // Move the maximum element 
             // to end of current array 
             // if it's not already at  
@@ -56,8 +61,13 @@ public class PancakeSort {
                 // To move at the end, 
                 // first move maximum 
                 // number to beginning 
-                flip(arr, mi); 
-                flips++;
+            	// Optimization 2:
+            	// unless it is already at index position 0
+            	// (so we can skip the first flip):
+            	if (mi != 0) {
+	                flip(arr, mi); 
+	                flips++;
+            	}
   
                 // Now move the maximum  
                 // number to end by 
@@ -81,7 +91,5 @@ public class PancakeSort {
         System.out.println(Arrays.toString(arr));
         System.out.println(String.format("Flips: %d", flips));
     } 
-	
-	
 	
 }
